@@ -14,6 +14,10 @@
 
 <br />
 
+`#specialty-coffee` • `#luxury-ecommerce` • `#coffee-sanctuary` • `#reservation-system` • `#tailwind-css` • `#javascript-es6` • `#web-audio-api` • `#sensory-radar` • `#coffee-sommelier` • `#cupping-flight` • `#haute-gastronomy` • `#glassmorphism`
+
+<br />
+
 [Overview](#-overview) • [Key Features](#-key-features) • [Application Showcase](#-application-showcase--ui-tour) • [Interactive Architecture](#-interactive-architecture) • [Getting Started](#-getting-started--local-development) • [Quality Assurance](#-quality-assurance--verification-suite) • [License](#-license)
 
 </div>
