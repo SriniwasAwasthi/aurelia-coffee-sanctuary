@@ -14,7 +14,7 @@
 
 <br />
 
-[Overview](#-overview) • [Key Features](#-key-features) • [Application Showcase](#-application-showcase--ui-tour) • [Interactive Architecture](#-interactive-architecture) • [Getting Started](#-getting-started--local-development) • [Sanctuary Menu Catalog](#-sanctuary-menu-catalog) • [Quality Assurance](#-quality-assurance--verification-suite) • [License](#-license)
+[Overview](#-overview) • [Key Features](#-key-features) • [Application Showcase](#-application-showcase--ui-tour) • [Interactive Architecture](#-interactive-architecture) • [Getting Started](#-getting-started--local-development) • [Quality Assurance](#-quality-assurance--verification-suite) • [License](#-license)
 
 </div>
 
@@ -184,31 +184,6 @@ npx serve . -p 8080
 
 ### 3. Open in Browser
 Visit **`http://localhost:8080`** in your browser to experience the platform.
-
----
-
-## ☕ Sanctuary Menu Catalog
-
-| ID | Item Name | Category | Origin & Elevation | Flavor Notes | Price |
-|---|---|---|---|---|:---:|
-| `sig-01` | **Aurelia 24K Gold Leaf Cortado** | Signature | Gesha Village, Ethiopia (2,050m) | Bergamot, Wild Honey, 24K Gold | $14.50 |
-| `sig-02` | **Velvet Obsidian Espresso** | Signature | Antigua Valley, Guatemala (1,850m) | 85% Cacao, Roasted Hazelnut, Crema | $8.50 |
-| `sig-03` | **Saffron & Orange Blossom Flat White** | Signature | Huila, Colombia (1,900m) | Persian Saffron, Mandarin, Pistachio | $12.00 |
-| `sig-04` | **Smoked Oak & Maple Macchiato** | Signature | Cerrado Mineiro, Brazil (1,200m) | Applewood Smoke, Aged Maple, Toffee | $11.50 |
-| `po-01` | **Panama Hacienda La Esmeralda Geisha** | Pour-Over | Boquete, Panama (1,800m) | White Jasmine, White Peach, Papaya | $19.00 |
-| `po-02` | **Aurelia Royal Halogen Siphon Geisha** | Pour-Over | Volcán Barú, Panama (1,920m) | Orange Blossom, Bergamot, Kiwi | $22.00 |
-| `po-03` | **Ethiopia Yirgacheffe Aricha Heirloom** | Pour-Over | Gedeo Zone, Ethiopia (2,100m) | Ripe Blueberry, Lavender Earl Grey | $13.00 |
-| `po-04` | **Colombia Pink Bourbon San Adolfo** | Pour-Over | San Adolfo, Huila (1,750m) | Pink Guava, Red Currant, Honeysuckle | $15.00 |
-| `cold-01` | **Affogato al Caffè Riserva** | Cold & Nitro | Florence & Antigua Blend | Tahitian Vanilla Gelato, Amaretti | $12.00 |
-| `cold-02` | **Kyoto 18-Hour Tower Cold Drip** | Cold & Nitro | Yirgacheffe Single Origin | Dark Cocoa Nibs, Black Cherry | $13.50 |
-| `cold-03` | **Amalfi Lemon Cold Brew Tonic** | Cold & Nitro | Colombian Light Roast | Candied Amalfi Peel, Sparkling Tonic | $11.00 |
-| `cold-04` | **Velvet Nitro Cold Brew Stout** | Cold & Nitro | Sumatra & Brazil Dark Roast | Stout Crema, Dark Chocolate, Molasses | $10.50 |
-| `bot-01` | **Cardamom & Rose Water Cortado** | Botanicals | Ethiopian Natural & Damask Rose | Crushed Green Cardamom, Rose Petals | $11.50 |
-| `bot-02` | **Ceremonial Kyoto Uji Matcha Latte** | Botanicals | Uji, Kyoto, Japan (Single Estate) | First-Harvest Tencha, Pistachio | $13.00 |
-| `bot-03` | **Smoked Lapsang Souchong Fog** | Botanicals | Wuyi Mountains, Fujian (Pine Smoked) | Smoked Black Tea, Vanilla Foam | $10.00 |
-| `pat-01` | **Madagascar Vanilla Mille-Feuille** | Pâtisserie | House Bakery Atelier | Caramelized Puff Pastry, Vanilla Diplomat | $14.00 |
-| `pat-02` | **Sicilian Pistachio & Raspberry Tart** | Pâtisserie | Bronte Pistachio Atelier | Pistachio Ganache, Raspberry Confit | $13.50 |
-| `pat-03` | **Bordeaux Vanilla Canelé de Bordeaux** | Pâtisserie | French Copper Molds | Caramelized Crust, Custard Center | $7.50 |
 
 ---
 
