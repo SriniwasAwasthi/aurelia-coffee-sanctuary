@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURELIA — Haute Roastery & Coffee Sanctuary</title>
+  <meta name="description" content="Experience high-level artisanal coffee, rare micro-lot single origins, and exquisite French pâtisserie in an ultra-luxurious, aesthetic sanctuary." />
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%23090807'/><text x='50%' y='68%' font-family='serif' font-size='60' font-weight='bold' fill='%23D4AF37' text-anchor='middle'>A</text></svg>" />
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN with custom configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#090807',
+            mocha: '#14110F',
+            espresso: '#1C1814',
+            gold: {
+              300: '#F5E5B8',
+              400: '#E5C358',
+              500: '#D4AF37',
+              600: '#B88E1C',
+              700: '#8C670D',
+              900: '#4A3403'
+            },
+            crema: '#FDFBF7'
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'Georgia', 'serif'],
+            cormorant: ['Cormorant Garamond', 'Georgia', 'serif'],
+            playfair: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['Space Mono', 'ui-monospace', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/custom.css?v=8" />
+</head>
+<body class="bg-obsidian text-stone-100 antialiased selection:bg-gold-500 selection:text-black">
+
+  <!-- =========================================================================
+       TOP ANNOUNCEMENT & STATUS BAR
+       ========================================================================= -->
+  <aside aria-label="Announcement & Status" class="bg-stone-950 border-b border-gold-500/20 text-xs py-2.5 px-4 sm:px-8 relative z-40">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] uppercase tracking-widest font-cinzel">
+      <div id="live-opening-status" class="flex items-center gap-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 status-dot-pulse"></span>
+        <span class="text-emerald-300 font-semibold">Open Now</span>
+        <span class="text-gold-500/40">•</span>
+        <span class="text-stone-300">Welcoming Guests Until 10:00 PM</span>
+      </div>
+
+      <div class="flex items-center gap-4 text-stone-400">
+        <span class="hidden md:inline">Complimentary Valet Parking Available</span>
+        <span class="hidden md:inline text-gold-500/30">|</span>
+        <a href="#reserve" data-res-target="vip" class="text-gold-400 hover:text-gold-300 transition-colors cursor-pointer">VIP Reservations</a>
+        <span class="text-gold-500/30">|</span>
+        <a href="tel:+15558924000" class="hover:text-stone-200 transition-colors">+1 (555) 892-4000</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       LUXURY STICKY NAVIGATION BAR
+       ========================================================================= -->
+  <nav class="sticky top-0 z-40 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between gap-4">
+      <!-- Monogram Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-gold-400 via-gold-500 to-gold-700 p-[1px] shadow-lg shadow-gold-500/20">
+          <div class="w-full h-full bg-obsidian rounded-[11px] flex items-center justify-center">
+            <span class="font-cinzel text-xl font-bold text-gold-gradient group-hover:scale-110 transition-transform">A</span>
+          </div>
+        </div>
+        <div>
+          <span class="font-cinzel text-xl md:text-2xl font-bold tracking-[0.2em] text-gold-gradient block">AURELIA</span>
+          <span class="text-[9px] uppercase tracking-[0.35em] text-gold-400/80 block -mt-1 font-sans">Haute Roastery</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div id="desktop-nav-links" class="hidden xl:flex items-center gap-7 font-cinzel text-xs uppercase tracking-widest">
+        <a href="#craft" class="desktop-nav-link nav-tab-inactive">The Craft</a>
+        <a href="#vault" class="desktop-nav-link nav-tab-inactive">Tasting Vault</a>
+        <a href="#flight" class="desktop-nav-link nav-tab-inactive">Cupping Flight</a>
+        <a href="#sommelier" class="desktop-nav-link nav-tab-inactive">Sommelier</a>
+        <a href="#sanctuary" class="desktop-nav-link nav-tab-inactive">Sanctuary</a>
+        <a href="#journal" class="desktop-nav-link nav-tab-inactive">The Journal</a>
+        <a href="#reserve" class="desktop-nav-link nav-tab-inactive">Reservations</a>
+        <a href="#visit" class="desktop-nav-link nav-tab-inactive">Hours & Map</a>
+      </div>
+
+      <!-- Right Action Hub: Audio Ambiance, Tasting Tray & CTA -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <!-- Ambient Lounge Sound Hub -->
+        <div class="hidden sm:flex items-center">
+          <button
+            type="button"
+            id="btn-audio-toggle"
+            title="Play soft, luxurious coffee sanctuary ambient tune"
+            class="flex items-center gap-2.5 px-3.5 py-2 rounded-full glass-panel border border-gold-500/30 text-stone-300 hover:text-gold-300 text-xs font-cinzel transition-all cursor-pointer group hover:border-gold-400"
+          >
+            <div id="sound-equalizer" class="flex items-end gap-1 h-3.5 equalizer-paused">
+              <div class="equalizer-bar h-1"></div>
+              <div class="equalizer-bar h-2"></div>
+              <div class="equalizer-bar h-3"></div>
+              <div class="equalizer-bar h-1.5"></div>
+            </div>
+            <span class="audio-status-text text-[10px] tracking-wider uppercase font-semibold">Sanctuary Tune</span>
+          </button>
+        </div>
+
+        <!-- Tasting Tray (Cart) Button -->
+        <button
+          type="button"
+          id="btn-open-cart"
+          class="relative p-2.5 rounded-full glass-panel border border-gold-500/30 text-gold-400 hover:text-gold-300 transition-colors cursor-pointer hover:border-gold-400"
+          title="View Tasting Tray"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span id="cart-badge-count" class="hidden absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-gold-500 text-stone-950 text-[10px] font-bold flex items-center justify-center shadow-md">
+            0
+          </span>
+        </button>
+
+        <!-- Reserve CTA Button -->
+        <a
+          href="#reserve"
+          data-res-target="table"
+          class="hidden sm:inline-flex btn-gold px-5 py-2.5 rounded-full text-[11px] tracking-widest uppercase cursor-pointer"
+        >
+          Reserve Table
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button
+          type="button"
+          id="btn-mobile-menu"
+          class="xl:hidden p-2 text-gold-400 hover:text-gold-300 cursor-pointer"
+          title="Open Menu"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-nav-drawer" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex flex-col justify-between p-6">
+    <div class="flex items-center justify-between pb-6 border-b border-gold-500/20">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-gold-500 flex items-center justify-center font-cinzel font-bold text-black text-lg">A</div>
+        <span class="font-cinzel text-lg font-bold tracking-widest text-gold-gradient">AURELIA</span>
+      </div>
+      <button type="button" id="btn-close-mobile-nav" class="text-stone-400 hover:text-gold-300 p-2 cursor-pointer">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div id="mobile-nav-links" class="flex flex-col gap-5 font-cinzel text-lg uppercase tracking-widest py-6">
+      <a href="#craft" class="mobile-nav-link mobile-nav-inactive">The Roasting Craft</a>
+      <a href="#vault" class="mobile-nav-link mobile-nav-inactive">The Tasting Vault</a>
+      <a href="#flight" class="mobile-nav-link mobile-nav-inactive">Cupping Flight</a>
+      <a href="#sommelier" class="mobile-nav-link mobile-nav-inactive">Coffee Sommelier</a>
+      <a href="#sanctuary" class="mobile-nav-link mobile-nav-inactive">Sanctuary Gallery</a>
+      <a href="#journal" class="mobile-nav-link mobile-nav-inactive">The Aesthetic Journal</a>
+      <a href="#reserve" class="mobile-nav-link mobile-nav-inactive">VIP Reservations</a>
+      <a href="#visit" class="mobile-nav-link mobile-nav-inactive">Hours & Coordinates</a>
+    </div>
+
+    <div class="pt-6 border-t border-gold-500/20 flex flex-col gap-3">
+      <button
+        type="button"
+        id="btn-audio-mobile"
+        class="w-full flex items-center justify-between px-4 py-3 rounded-xl glass-panel border border-gold-500/30 text-xs font-cinzel text-stone-200 cursor-pointer hover:border-gold-400 transition-all"
+      >
+        <div class="flex items-center gap-2.5">
+          <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+          <span class="tracking-wider uppercase">Sanctuary Ambient Tune</span>
+        </div>
+        <span id="mobile-audio-status" class="text-stone-400">OFF</span>
+      </button>
+      <a href="#reserve" class="mobile-nav-link btn-gold text-center py-3 rounded-full text-xs font-bold uppercase tracking-widest">
+        Reserve VIP Table
+      </a>
+      <p class="text-center text-xs text-stone-400 font-cinzel">Open Daily • 7:00 AM — 10:00 PM</p>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       HERO SECTION — CINEMATIC COFFEE SANCTUARY
+       ========================================================================= -->
+  <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+    <!-- Hero Background Image with Rich Dark Gold Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=2000&q=90"
+        alt="Aurelia Luxury Coffee Roastery Ambiance"
+        class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
+      />
+      <!-- Multiple Gradient Overlays for Cinematic Depth -->
+      <div class="absolute inset-0 bg-gradient-to-b from-obsidian/80 via-obsidian/60 to-obsidian"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(9,8,7,0.85)_100%)]"></div>
+    </div>
+
+    <!-- Steam Particle simulation container -->
+    <div class="steam-container">
+      <div class="steam-particle w-32 h-32 bottom-20 left-1/4"></div>
+      <div class="steam-particle w-48 h-48 bottom-32 right-1/3" style="animation-delay: 2.5s;"></div>
+      <div class="steam-particle w-36 h-36 bottom-24 right-1/4" style="animation-delay: 4.8s;"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-8 py-20 text-center">
+      <!-- Monogram Tag -->
+      <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass-panel border border-gold-500/40 text-gold-300 text-xs font-cinzel tracking-[0.25em] uppercase mb-8 shadow-2xl">
+        <span class="w-2 h-2 rounded-full bg-gold-400"></span>
+        Artisanal Coffee Elevated to Haute Couture
+        <span class="w-2 h-2 rounded-full bg-gold-400"></span>
+      </div>
+
+      <!-- Majestic Hero Headline -->
+      <h1 class="font-cinzel text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-stone-100 mb-6 leading-[1.1]">
+        Where Rare Terroirs Meet <br class="hidden sm:inline" />
+        <span class="text-gold-shimmer">Timeless Elegance</span>
+      </h1>
+
+      <!-- Editorial Subheading -->
+      <p class="font-playfair italic text-lg sm:text-2xl text-stone-200 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
+        "Step into a sanctuary dedicated to the world’s most exquisite micro-lots, bespoke cast-iron drum roasting, and the sublime ritual of the perfect extraction."
+      </p>
+
+      <!-- Dual Call to Actions -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-16">
+        <a
+          href="#reserve"
+          class="w-full sm:w-auto btn-gold px-8 py-4 rounded-full text-xs font-bold tracking-[0.2em] uppercase shadow-2xl"
+        >
+          Reserve Your Experience
+        </a>
+        <a
+          href="#vault"
+          class="w-full sm:w-auto btn-gold-outline px-8 py-4 rounded-full text-xs font-bold tracking-[0.2em] uppercase"
+        >
+          Explore The Tasting Vault
+        </a>
+      </div>
+
+      <!-- Trust & Heritage Metrics Strip -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
+        <div class="p-4 rounded-2xl glass-panel border border-gold-500/20 text-center luxury-card">
+          <div class="font-cinzel text-xl sm:text-2xl font-bold text-gold-400">1,850m+</div>
+          <div class="text-[10px] sm:text-xs text-stone-300 uppercase tracking-wider font-cinzel mt-1">High Altitude Terroir</div>
+        </div>
+        <div class="p-4 rounded-2xl glass-panel border border-gold-500/20 text-center luxury-card">
+          <div class="font-cinzel text-xl sm:text-2xl font-bold text-gold-400">Top 1%</div>
+          <div class="text-[10px] sm:text-xs text-stone-300 uppercase tracking-wider font-cinzel mt-1">Micro-Lot Sourcing</div>
+        </div>
+        <div class="p-4 rounded-2xl glass-panel border border-gold-500/20 text-center luxury-card">
+          <div class="font-cinzel text-xl sm:text-2xl font-bold text-gold-400">204°C</div>
+          <div class="text-[10px] sm:text-xs text-stone-300 uppercase tracking-wider font-cinzel mt-1">Drum Cast Roasting</div>
+        </div>
+        <div class="p-4 rounded-2xl glass-panel border border-gold-500/20 text-center luxury-card">
+          <div class="font-cinzel text-xl sm:text-2xl font-bold text-gold-400">93.5°C</div>
+          <div class="text-[10px] sm:text-xs text-stone-300 uppercase tracking-wider font-cinzel mt-1">Volcanic Mineral Extr.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION: THE CRAFT & PHILOSOPHY ("BEAN TO CUP" RITUAL)
+       ========================================================================= -->
+  <section id="craft" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto relative">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-cinzel">The Philosophy of Mastery</span>
+      <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-stone-100 mt-2 mb-4">
+        The Four Pillars of Aurelia
+      </h2>
+      <div class="gold-divider"><span></span></div>
+      <p class="text-stone-300 text-sm sm:text-base font-sans leading-relaxed">
+        True luxury lies in the uncompromising pursuit of precision. Every harvest that graces our bar has undergone a relentless journey of curation, sensory calibration, and artisanal stewardship.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Pillar 1 -->
+      <div class="luxury-card p-8 rounded-3xl flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-cinzel font-bold text-xl mb-6 shadow-inner">
+            01
+          </div>
+          <h3 class="text-xl font-cinzel font-bold text-gold-100 mb-2">High Altitude Terroirs</h3>
+          <p class="text-xs text-gold-400/80 font-cinzel uppercase tracking-wider mb-3">Direct-Trade Single Origins</p>
+          <p class="text-stone-300 text-xs md:text-sm leading-relaxed">
+            Sourced exclusively from shade-grown, family-owned micro-lots perched above 1,800 meters in Panama, Ethiopia, Colombia, and Guatemala.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-gold-500/15 text-[11px] text-stone-400 font-mono">
+          Harvest: Hand-Selected Cherries
+        </div>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="luxury-card p-8 rounded-3xl flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-cinzel font-bold text-xl mb-6 shadow-inner">
+            02
+          </div>
+          <h3 class="text-xl font-cinzel font-bold text-gold-100 mb-2">Cast-Iron Micro Roasting</h3>
+          <p class="text-xs text-gold-400/80 font-cinzel uppercase tracking-wider mb-3">Bespoke Thermal Profiles</p>
+          <p class="text-stone-300 text-xs md:text-sm leading-relaxed">
+            Roasted in small 5kg batches inside our vintage cast-iron drum. We honor the unique cellular density of each cultivar to unleash sublime floral and caramel notes.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-gold-500/15 text-[11px] text-stone-400 font-mono">
+          Method: Conduction & Radiant Heat
+        </div>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="luxury-card p-8 rounded-3xl flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-cinzel font-bold text-xl mb-6 shadow-inner">
+            03
+          </div>
+          <h3 class="text-xl font-cinzel font-bold text-gold-100 mb-2">Volcanic Water Alchemy</h3>
+          <p class="text-xs text-gold-400/80 font-cinzel uppercase tracking-wider mb-3">93.5°C Custom Minerals</p>
+          <p class="text-stone-300 text-xs md:text-sm leading-relaxed">
+            Coffee is 98% water. Our reverse-osmosis filtration system re-introduces pure volcanic magnesium and calcium ions at exact PPM ratios for silky extraction balance.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-gold-500/15 text-[11px] text-stone-400 font-mono">
+          Balance: 120 PPM Ideal Hardness
+        </div>
+      </div>
+
+      <!-- Pillar 4 -->
+      <div class="luxury-card p-8 rounded-3xl flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 font-cinzel font-bold text-xl mb-6 shadow-inner">
+            04
+          </div>
+          <h3 class="text-xl font-cinzel font-bold text-gold-100 mb-2">The Velvet Extraction</h3>
+          <p class="text-xs text-gold-400/80 font-cinzel uppercase tracking-wider mb-3">9.2 Bar Pressure Profiling</p>
+          <p class="text-stone-300 text-xs md:text-sm leading-relaxed">
+            Handcrafted on customized Kees van der Westen machines. Each double extraction culminates in an unctuous, tiger-striped crema that dances upon the tongue.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-gold-500/15 text-[11px] text-stone-400 font-mono">
+          Finish: Dense Crema & Aromatic Bloom
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION: THE TASTING VAULT (INTERACTIVE MENU & FLAVOR PROFILER)
+       ========================================================================= -->
+  <section id="vault" class="py-24 bg-stone-950/60 border-y border-gold-500/15 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-cinzel">The Curated Catalog</span>
+          <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-stone-100 mt-2">
+            The Tasting Vault
+          </h2>
+          <p class="text-stone-400 text-sm mt-2 max-w-xl">
+            Each creation is an exploration of aroma, mouthfeel, and culinary artistry. Select any item to examine its sensory radar and origin cupping score.
+          </p>
+        </div>
+
+        <!-- Search input -->
+        <div class="relative w-full md:w-72">
+          <input
+            type="text"
+            id="menu-search-input"
+            aria-label="Search menu items by notes or origin"
+            placeholder="Search notes, origins..."
+            class="w-full bg-stone-900/90 border border-gold-500/25 rounded-full py-2.5 pl-10 pr-4 text-xs text-stone-200 placeholder-stone-500 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition-all font-sans"
+          />
+          <svg class="w-4 h-4 text-gold-400/70 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex items-center gap-2.5 overflow-x-auto pb-4 mb-10 no-scrollbar">
+        <button
+          type="button"
+          data-menu-filter="all"
+          class="px-5 py-2 rounded-full text-xs font-cinzel tracking-wider uppercase transition-all whitespace-nowrap cursor-pointer bg-gold-500 text-stone-950 font-bold shadow-lg"
+        >
+          All Vault Items (18)
+        </button>
+        <button
+          type="button"
+          data-menu-filter="signature"
+          class="px-5 py-2 rounded-full text-xs font-cinzel tracking-wider uppercase transition-all whitespace-nowrap cursor-pointer bg-stone-900/60 text-gold-200/80 border border-gold-500/20 hover:border-gold-400"
+        >
+          Signature Espressos
+        </button>
+        <button
+          type="button"
+          data-menu-filter="pourover"
+          class="px-5 py-2 rounded-full text-xs font-cinzel tracking-wider uppercase transition-all whitespace-nowrap cursor-pointer bg-stone-900/60 text-gold-200/80 border border-gold-500/20 hover:border-gold-400"
+        >
+          Single-Origin Pour-Overs
+        </button>
+        <button
+          type="button"
+          data-menu-filter="cold"
+          class="px-5 py-2 rounded-full text-xs font-cinzel tracking-wider uppercase transition-all whitespace-nowrap cursor-pointer bg-stone-900/60 text-gold-200/80 border border-gold-500/20 hover:border-gold-400"
+        >
+          Cold & Nitro Infusions
+        </button>
+        <button
+          type="button"
+          data-menu-filter="botanical"
+          class="px-5 py-2 rounded-full text-xs font-cinzel tracking-wider uppercase transition-all whitespace-nowrap cursor-pointer bg-stone-900/60 text-gold-200/80 border border-gold-500/20 hover:border-gold-400"
+        >
+          Haute Botanicals
+        </button>
+        <button
+          type="button"
+          data-menu-filter="patisserie"
+          class="px-5 py-2 rounded-full text-xs font-cinzel tracking-wider uppercase transition-all whitespace-nowrap cursor-pointer bg-stone-900/60 text-gold-200/80 border border-gold-500/20 hover:border-gold-400"
+        >
+          Artisanal Pâtisserie
+        </button>
+      </div>
+
+      <!-- Dynamic Menu Grid -->
+      <div id="menu-items-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Injected dynamically via js/app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION: THE MASTER CUPPING FLIGHT BUILDER (EXCLUSIVE CONNOISSEUR FEATURE)
+       ========================================================================= -->
+  <section id="flight" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto relative">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-cinzel">Artisanal Cupping Flight</span>
+      <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-stone-100 mt-2 mb-4">
+        The Cupping Flight Experience
+      </h2>
+      <div class="gold-divider"><span></span></div>
+      <p class="text-stone-300 text-sm sm:text-base font-sans leading-relaxed">
+        Select three rare single-origin micro-lots from our private reserve. Our Master Q-Grader will extract and present them tableside in Austrian crystal stemware for an unforgettable comparative tasting flight.
+      </p>
+    </div>
+
+    <!-- Cupping Flight Dynamic Container -->
+    <div id="cupping-flight-container">
+      <!-- Injected dynamically by js/app.js -->
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION: THE COFFEE SOMMELIER (INTERACTIVE QUIZ)
+       ========================================================================= -->
+  <section id="sommelier" class="py-24 px-4 sm:px-8 max-w-5xl mx-auto relative">
+    <div class="text-center mb-12">
+      <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-cinzel">Interactive Sensory Matchmaker</span>
+      <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-stone-100 mt-2 mb-4">
+        The Aurelia Coffee Sommelier
+      </h2>
+      <div class="gold-divider"><span></span></div>
+      <p class="text-stone-300 text-sm sm:text-base max-w-2xl mx-auto font-sans leading-relaxed">
+        Allow our interactive cupping sommelier to decode your taste preferences across mood, terroir, and mouthfeel to reveal your destined signature cup.
+      </p>
+    </div>
+
+    <!-- Sommelier Quiz Engine Container -->
+    <div id="sommelier-quiz-container">
+      <!-- Injected by js/sommelier.js -->
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION: THE SANCTUARY (AMBIANCE & ARCHITECTURE GALLERY)
+       ========================================================================= -->
+  <section id="sanctuary" class="py-24 bg-stone-950/70 border-y border-gold-500/15 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-cinzel">Atmospheric Architecture</span>
+        <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-stone-100 mt-2 mb-4">
+          The Sanctuary
+        </h2>
+        <div class="gold-divider"><span></span></div>
+        <p class="text-stone-300 text-sm sm:text-base font-sans leading-relaxed">
+          Crafted with Italian Carrara marble, brushed bronze fixtures, and plush emerald velvet banquettes. Click any setting to view the gallery in full atmospheric resolution.
+        </p>
+      </div>
+
+      <!-- Gallery Filter Tabs -->
+      <div class="flex items-center justify-center gap-3 overflow-x-auto pb-6 mb-8 no-scrollbar">
+        <button
+          type="button"
+          data-gallery-filter="all"
+          class="px-5 py-2 rounded-full text-xs font-cinzel tracking-wider uppercase transition-all whitespace-nowrap cursor-pointer bg-gold-500 text-stone-950 font-bold shadow-lg"
+        >
+          All Spaces
+        </button>
+        <button
+          type="button"
+          data-gallery-filter="barista"
+          class="px-5 py-2 rounded-full text-xs font-cinzel tracking-wider uppercase transition-all whitespace-nowrap cursor-pointer bg-stone-900/60 text-gold-200/80 border border-gold-500/20 hover:border-gold-400"
+        >
+          Barista Theatre
+        </button>
+        <button
+          type="button"
+          data-gallery-filter="salon"
+          class="px-5 py-2 rounded-full text-xs font-cinzel tracking-wider uppercase transition-all whitespace-nowrap cursor-pointer bg-stone-900/60 text-gold-200/80 border border-gold-500/20 hover:border-gold-400"
+        >
+          Velvet Salons
+        </button>
+        <button
+          type="button"
+          data-gallery-filter="roaster"
+          class="px-5 py-2 rounded-full text-xs font-cinzel tracking-wider uppercase transition-all whitespace-nowrap cursor-pointer bg-stone-900/60 text-gold-200/80 border border-gold-500/20 hover:border-gold-400"
+        >
+          Cast-Iron Roaster
+        </button>
+      </div>
+
+      <!-- Masonry Gallery Dynamic Grid -->
+      <div id="sanctuary-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Injected dynamically by js/app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION: THE AESTHETIC JOURNAL (LOOKBOOK & CURATED MOMENTS)
+       ========================================================================= -->
+  <section id="journal" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto relative">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <div>
+        <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-cinzel">The Visual Diary</span>
+        <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-stone-100 mt-2">
+          The Aesthetic Journal
+        </h2>
+        <p class="text-stone-400 text-sm mt-2 max-w-xl font-playfair italic">
+          "A visual tapestry of quiet mornings, hand-pulled crema, and the refined stillness of our patrons."
+        </p>
+      </div>
+
+      <a
+        href="#reserve"
+        class="inline-flex items-center gap-2 text-xs font-cinzel uppercase tracking-widest text-gold-300 hover:text-gold-200 transition-colors border-b border-gold-500/40 pb-1 self-start md:self-auto"
+      >
+        <span>Join The Experience</span>
+        <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+
+    <!-- 4-Grid Curated Lookbook -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="group relative h-96 rounded-3xl overflow-hidden border border-gold-500/20 luxury-card shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85" alt="Morning ritual at Aurelia" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <span class="text-[10px] text-gold-400 font-mono">08:15 AM • The Barista Bar</span>
+          <h4 class="font-cinzel text-base font-bold text-stone-100 mt-0.5">Saffron Mist & Crema</h4>
+        </div>
+      </div>
+
+      <div class="group relative h-96 rounded-3xl overflow-hidden border border-gold-500/20 luxury-card shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1000&q=85" alt="Swan latte art in gold ceramic" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <span class="text-[10px] text-gold-400 font-mono">11:30 AM • The Veranda</span>
+          <h4 class="font-cinzel text-base font-bold text-stone-100 mt-0.5">The Sovereign Swan Pour</h4>
+        </div>
+      </div>
+
+      <div class="group relative h-96 rounded-3xl overflow-hidden border border-gold-500/20 luxury-card shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=85" alt="Quiet morning reading with coffee" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <span class="text-[10px] text-gold-400 font-mono">03:45 PM • Library Salon</span>
+          <h4 class="font-cinzel text-base font-bold text-stone-100 mt-0.5">Quietude & Single Origin</h4>
+        </div>
+      </div>
+
+      <div class="group relative h-96 rounded-3xl overflow-hidden border border-gold-500/20 luxury-card shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1000&q=85" alt="Barista micro-foam pour ritual" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <span class="text-[10px] text-gold-400 font-mono">06:20 PM • Sunset Extraction</span>
+          <h4 class="font-cinzel text-base font-bold text-stone-100 mt-0.5">The Precision Alchemy</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION: VIP TABLE & ROASTERY EXPERIENCE RESERVATION
+       ========================================================================= -->
+  <section id="reserve" class="py-24 px-4 sm:px-8 max-w-5xl mx-auto relative">
+    <div class="text-center mb-12">
+      <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-cinzel">Exclusive Sanctuary Access</span>
+      <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-stone-100 mt-2 mb-4">
+        Reserve Your Table & Cupping Flight
+      </h2>
+      <div class="gold-divider"><span></span></div>
+      <p class="text-stone-300 text-sm sm:text-base font-sans max-w-2xl mx-auto leading-relaxed">
+        Whether arriving for a meditative morning pour-over, an afternoon pâtisserie rendezvous, or a private master cupping session, our team ensures an unforgettable experience.
+      </p>
+    </div>
+
+    <!-- Reservation Type Selector: Table Reservation vs VIP Sanctuary Experience -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-lg mx-auto mb-10 p-1.5 rounded-full glass-panel border border-gold-500/30 shadow-2xl">
+      <button
+        type="button"
+        id="tab-reserve-table"
+        class="w-full sm:w-1/2 py-3 px-6 rounded-full font-cinzel text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer bg-gold-500 text-stone-950 shadow-lg"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        <span>Reserve Table</span>
+      </button>
+      <button
+        type="button"
+        id="tab-reserve-vip"
+        class="w-full sm:w-1/2 py-3 px-6 rounded-full font-cinzel text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer text-stone-300 hover:text-gold-300"
+      >
+        <svg class="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+        <span>VIP Sanctuary Experience</span>
+      </button>
+    </div>
+
+    <!-- Reservation Card / Form -->
+    <div class="glass-panel-deep p-8 sm:p-12 rounded-3xl border border-gold-500/30 shadow-2xl relative">
+      <!-- Dynamic Tier Information Banner -->
+      <div id="res-mode-banner" class="mb-8 p-4 sm:p-5 rounded-2xl bg-stone-950/70 border border-gold-500/20 flex items-start gap-4 transition-all">
+        <div id="res-mode-icon" class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0 mt-0.5">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span id="res-mode-badge" class="text-[10px] font-cinzel font-bold uppercase tracking-widest text-gold-400">Boutique Cafe Seating</span>
+            <span class="text-stone-500 text-xs">•</span>
+            <span id="res-mode-status" class="text-[11px] text-emerald-400 font-sans">Complimentary Reservation</span>
+          </div>
+          <p id="res-mode-desc" class="text-xs sm:text-sm text-stone-300 mt-1 leading-relaxed font-sans">
+            Reserve a table in The Main Sanctuary or Sunlit Veranda. Perfect for daily coffee rituals, morning viennoiserie, or business meetings. Held for 15 minutes.
+          </p>
+        </div>
+      </div>
+
+      <form id="vip-reservation-form" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Full Name -->
+          <div>
+            <label for="res-guestName" class="block text-xs uppercase tracking-wider text-gold-300 font-cinzel mb-2">Guest Name</label>
+            <input
+              type="text"
+              id="res-guestName"
+              name="guestName"
+              required
+              autocomplete="name"
+              placeholder="e.g. Julianne Sterling"
+              class="w-full bg-stone-900/90 border border-gold-500/25 rounded-2xl px-5 py-3.5 text-xs sm:text-sm text-stone-100 placeholder-stone-600 focus:outline-none focus:border-gold-400 font-sans"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="res-email" class="block text-xs uppercase tracking-wider text-gold-300 font-cinzel mb-2">Email for VIP Confirmation</label>
+            <input
+              type="email"
+              id="res-email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="julianne@luxurymail.com"
+              class="w-full bg-stone-900/90 border border-gold-500/25 rounded-2xl px-5 py-3.5 text-xs sm:text-sm text-stone-100 placeholder-stone-600 focus:outline-none focus:border-gold-400 font-sans"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <!-- Date -->
+          <div>
+            <label for="res-date" class="block text-xs uppercase tracking-wider text-gold-300 font-cinzel mb-2">Preferred Date</label>
+            <input
+              type="date"
+              id="res-date"
+              name="date"
+              required
+              class="w-full bg-stone-900/90 border border-gold-500/25 rounded-2xl px-4 py-3.5 text-xs sm:text-sm text-stone-100 focus:outline-none focus:border-gold-400 font-sans"
+            />
+          </div>
+
+          <!-- Time Slot -->
+          <div>
+            <label for="res-time" class="block text-xs uppercase tracking-wider text-gold-300 font-cinzel mb-2">Arrival Time</label>
+            <select
+              id="res-time"
+              name="time"
+              required
+              class="w-full bg-stone-900/90 border border-gold-500/25 rounded-2xl px-4 py-3.5 text-xs sm:text-sm text-stone-100 focus:outline-none focus:border-gold-400 font-sans"
+            >
+              <optgroup label="Morning Ritual">
+                <option value="08:00 AM">08:00 AM</option>
+                <option value="09:30 AM">09:30 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+              </optgroup>
+              <optgroup label="Afternoon Cupping & Pâtisserie">
+                <option value="01:00 PM">01:00 PM</option>
+                <option value="02:30 PM" selected>02:30 PM</option>
+                <option value="04:00 PM">04:00 PM</option>
+              </optgroup>
+              <optgroup label="Twilight Velvet Lounge">
+                <option value="05:30 PM">05:30 PM</option>
+                <option value="07:00 PM">07:00 PM</option>
+                <option value="08:30 PM">08:30 PM</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <!-- Party Size -->
+          <div>
+            <label for="res-guests" class="block text-xs uppercase tracking-wider text-gold-300 font-cinzel mb-2">Party Size</label>
+            <select
+              id="res-guests"
+              name="guests"
+              required
+              class="w-full bg-stone-900/90 border border-gold-500/25 rounded-2xl px-4 py-3.5 text-xs sm:text-sm text-stone-100 focus:outline-none focus:border-gold-400 font-sans"
+            >
+              <option value="Solo Connoisseur (1 Guest)">Solo Connoisseur (1 Guest)</option>
+              <option value="Tête-à-Tête (2 Guests)" selected>Tête-à-Tête (2 Guests)</option>
+              <option value="Intimate Group (3 - 4 Guests)">Intimate Group (3 - 4 Guests)</option>
+              <option value="Private Salon (5 - 8 Guests)">Private Salon (5 - 8 Guests)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Seating Zone -->
+          <div>
+            <label for="res-zone" class="block text-xs uppercase tracking-wider text-gold-300 font-cinzel mb-2">Atmospheric Zone</label>
+            <select
+              id="res-zone"
+              name="zone"
+              required
+              class="w-full bg-stone-900/90 border border-gold-500/25 rounded-2xl px-4 py-3.5 text-xs sm:text-sm text-stone-100 focus:outline-none focus:border-gold-400 font-sans"
+            >
+              <option value="The Velvet Salon">The Velvet Salon (Plush Banquettes & Jazz)</option>
+              <option value="The Barista Counter">The Barista Counter (Front-Row Extraction)</option>
+              <option value="The Sunlit Veranda">The Sunlit Veranda (Botanical Garden)</option>
+              <option value="Private Roaster's Salon">Private Roaster's Salon (Master Cupping Flight)</option>
+            </select>
+          </div>
+
+          <!-- Occasion -->
+          <div>
+            <label for="res-occasion" class="block text-xs uppercase tracking-wider text-gold-300 font-cinzel mb-2">Occasion</label>
+            <select
+              id="res-occasion"
+              name="occasion"
+              class="w-full bg-stone-900/90 border border-gold-500/25 rounded-2xl px-4 py-3.5 text-xs sm:text-sm text-stone-100 focus:outline-none focus:border-gold-400 font-sans"
+            >
+              <option value="Sensory Coffee Ritual">Sensory Coffee Ritual</option>
+              <option value="Business Rendezvous">Business Rendezvous</option>
+              <option value="Celebration / Anniversary">Celebration / Anniversary</option>
+              <option value="Casual Afternoon Luxury">Casual Afternoon Luxury</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Special Requests -->
+        <div>
+          <label for="res-notes" class="block text-xs uppercase tracking-wider text-gold-300 font-cinzel mb-2">Special Requests & Dietary Preferences (Optional)</label>
+          <textarea
+            id="res-notes"
+            name="notes"
+            rows="2"
+            placeholder="e.g. Oat milk preference, table away from draft, anniversary champagne request..."
+            class="w-full bg-stone-900/90 border border-gold-500/25 rounded-2xl px-5 py-3 text-xs sm:text-sm text-stone-100 placeholder-stone-600 focus:outline-none focus:border-gold-400 font-sans resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-2">
+          <button
+            type="submit"
+            id="btn-submit-res"
+            class="w-full btn-gold py-4 rounded-full text-xs sm:text-sm font-bold tracking-[0.2em] uppercase shadow-2xl flex items-center justify-center gap-3 cursor-pointer"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span id="btn-submit-res-text">Confirm Cafe Table Reservation</span>
+          </button>
+          <p id="res-terms-text" class="text-center text-[11px] text-stone-400 mt-3 font-sans">
+            Reservations held for 15 minutes. Complimentary guest seating with zero reservation fee.
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION: EDITORIAL CRITIQUE & ACCLAIM (ENHANCED LAUREL BADGES)
+       ========================================================================= -->
+  <section class="py-24 bg-stone-950 border-t border-gold-500/15 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-cinzel">Press & Critical Acclaim</span>
+        <h3 class="text-2xl sm:text-4xl font-cinzel font-bold text-stone-100 mt-2">Lauded by Connoisseurs</h3>
+        <div class="gold-divider"><span></span></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 rounded-3xl glass-panel border border-gold-500/20 text-center flex flex-col justify-between luxury-card">
+          <div>
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gold-500/10 text-gold-400 mb-4 font-cinzel font-bold text-lg border border-gold-500/25">
+              AD
+            </div>
+            <div class="flex justify-center text-gold-400 gap-1 mb-4 text-xs">
+              ★★★★★
+            </div>
+            <blockquote class="font-playfair italic text-stone-200 text-sm sm:text-base leading-relaxed mb-6">
+              "A breathtaking triumph of aesthetics. Aurelia elevates the morning caffeine ritual to the refined heights of haute gastronomy."
+            </blockquote>
+          </div>
+          <div class="pt-4 border-t border-gold-500/15">
+            <cite class="font-cinzel text-xs uppercase tracking-widest text-gold-300 font-bold block not-italic">Architectural Digest</cite>
+            <span class="text-[11px] text-stone-400 font-sans">Global Design & Hospitality Issue</span>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-3xl glass-panel border border-gold-500/20 text-center flex flex-col justify-between luxury-card">
+          <div>
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gold-500/10 text-gold-400 mb-4 font-cinzel font-bold text-lg border border-gold-500/25">
+              SC
+            </div>
+            <div class="flex justify-center text-gold-400 gap-1 mb-4 text-xs">
+              ★★★★★
+            </div>
+            <blockquote class="font-playfair italic text-stone-200 text-sm sm:text-base leading-relaxed mb-6">
+              "Their 24K Gold Leaf Cortado and rare Panamanian Geisha extract are without peer. An absolute destination for genuine coffee devotees."
+            </blockquote>
+          </div>
+          <div class="pt-4 border-t border-gold-500/15">
+            <cite class="font-cinzel text-xs uppercase tracking-widest text-gold-300 font-bold block not-italic">Specialty Coffee Chronicle</cite>
+            <span class="text-[11px] text-stone-400 font-sans">98.5 World Cupping Score</span>
+          </div>
+        </div>
+
+        <div class="p-8 rounded-3xl glass-panel border border-gold-500/20 text-center flex flex-col justify-between luxury-card">
+          <div>
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gold-500/10 text-gold-400 mb-4 font-cinzel font-bold text-lg border border-gold-500/25">
+              MG
+            </div>
+            <div class="flex justify-center text-gold-400 gap-1 mb-4 text-xs">
+              ★★★★★
+            </div>
+            <blockquote class="font-playfair italic text-stone-200 text-sm sm:text-base leading-relaxed mb-6">
+              "Sublime ambiance, acoustic warmth, and pastries that rival the finest boulangeries of Paris. Aurelia is an indispensable urban sanctuary."
+            </blockquote>
+          </div>
+          <div class="pt-4 border-t border-gold-500/15">
+            <cite class="font-cinzel text-xs uppercase tracking-widest text-gold-300 font-bold block not-italic">Michelin Guide Contributor</cite>
+            <span class="text-[11px] text-stone-400 font-sans">Urban Luxury Gastronomy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION: VISIT & COORDINATES / INTERACTIVE MAP MODULE / FAQ
+       ========================================================================= -->
+  <section id="visit" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto relative">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <!-- Left Coordinates Column -->
+      <div class="lg:col-span-6 space-y-8">
+        <div>
+          <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-cinzel">Sanctuary Coordinates</span>
+          <h2 class="text-3xl sm:text-5xl font-cinzel font-bold text-stone-100 mt-2 mb-4">
+            Visit Aurelia
+          </h2>
+          <p class="text-stone-300 text-sm font-sans leading-relaxed">
+            Conveniently situated in the premier architectural district. Step inside and let the aroma of freshly drum-roasted coffee envelop your senses.
+          </p>
+        </div>
+
+        <!-- Schedule & Address Card -->
+        <div class="glass-panel p-8 rounded-3xl border border-gold-500/25 space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-cinzel text-sm font-bold text-amber-100 uppercase tracking-wider">Sanctuary Hours</h4>
+              <p class="text-xs text-stone-300 mt-1">Monday — Sunday: <strong class="text-gold-300 font-mono">07:00 AM – 10:00 PM</strong></p>
+              <p class="text-[11px] text-stone-400 mt-0.5">Fresh viennoiseries pulled from the hearth daily at 7:00 AM & 1:00 PM</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-cinzel text-sm font-bold text-amber-100 uppercase tracking-wider">Location & Valet</h4>
+              <p class="text-xs text-stone-300 mt-1">742 Grand Boulevard, Haute Atelier District, Suite 100</p>
+              <p class="text-[11px] text-gold-400/80 mt-0.5">Complimentary white-glove valet parking directly at the front colonnade</p>
+              <div class="mt-3 flex items-center gap-3">
+                <button
+                  type="button"
+                  id="btn-copy-address"
+                  class="text-[10px] font-cinzel uppercase tracking-wider px-3 py-1 rounded-full bg-stone-900 border border-gold-500/30 text-gold-300 hover:bg-gold-500 hover:text-stone-950 transition-colors cursor-pointer"
+                >
+                  Copy Coordinates
+                </button>
+                <a
+                  href="https://maps.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-[10px] font-cinzel uppercase tracking-wider text-stone-400 hover:text-gold-300 transition-colors flex items-center gap-1"
+                >
+                  <span>Open in Maps</span>
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-cinzel text-sm font-bold text-amber-100 uppercase tracking-wider">VIP Concierge</h4>
+              <p class="text-xs text-stone-300 mt-1">Direct Line: <a href="tel:+15558924000" class="text-gold-400 hover:underline font-mono">+1 (555) 892-4000</a></p>
+              <p class="text-[11px] text-stone-400 mt-0.5">Inquiries for private roastery buyout, corporate cuppings, or catering</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive FAQ Accordion -->
+      <div class="lg:col-span-6 space-y-4">
+        <h3 class="text-2xl font-cinzel font-bold text-stone-100 mb-6">Frequently Asked Questions</h3>
+
+        <!-- FAQ 1 -->
+        <details class="group glass-panel p-5 rounded-2xl border border-gold-500/20 [&_summary::-webkit-details-marker]:hidden cursor-pointer" open>
+          <summary class="flex items-center justify-between font-cinzel text-sm text-stone-100 group-hover:text-gold-300 transition-colors">
+            <span>Are reservations strictly required to visit?</span>
+            <span class="text-gold-400 transition-transform duration-300 group-open:rotate-180">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-stone-300 font-sans leading-relaxed border-t border-gold-500/10 pt-3">
+            Walk-in patrons are always welcomed warmly at our Espresso Bar and Sunlit Veranda. Reservations are suggested for parties wishing to experience our seated Velvet Salon, Cupping Flights, or private tasting tables during peak afternoon hours.
+          </p>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="group glass-panel p-5 rounded-2xl border border-gold-500/20 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="flex items-center justify-between font-cinzel text-sm text-stone-100 group-hover:text-gold-300 transition-colors">
+            <span>Can I purchase whole bean roasts to brew at home?</span>
+            <span class="text-gold-400 transition-transform duration-300 group-open:rotate-180">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-stone-300 font-sans leading-relaxed border-t border-gold-500/10 pt-3">
+            Yes. All 14 rare single-origin roasts and signature blends are sealed in nitrogen-flushed, matte-obsidian tin canisters with one-way aroma valves. Our baristas will happily grind them to your specific brewing method (Espresso, V60, Chemex, French Press).
+          </p>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="group glass-panel p-5 rounded-2xl border border-gold-500/20 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="flex items-center justify-between font-cinzel text-sm text-stone-100 group-hover:text-gold-300 transition-colors">
+            <span>Do you offer plant-based milk and gluten-free pastries?</span>
+            <span class="text-gold-400 transition-transform duration-300 group-open:rotate-180">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-stone-300 font-sans leading-relaxed border-t border-gold-500/10 pt-3">
+            Certainly. We steam organic house-made sprouted almond milk, artisanal oat milk, and macadamia milk formulated specifically for latte art microfoam. Our pâtisserie atelier also crafts daily gluten-free almond financiers and chocolate hazelnut tortes.
+          </p>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="group glass-panel p-5 rounded-2xl border border-gold-500/20 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="flex items-center justify-between font-cinzel text-sm text-stone-100 group-hover:text-gold-300 transition-colors">
+            <span>Is high-speed Wi-Fi available for work?</span>
+            <span class="text-gold-400 transition-transform duration-300 group-open:rotate-180">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-stone-300 font-sans leading-relaxed border-t border-gold-500/10 pt-3">
+            Complimentary gigabit Wi-Fi and discreet brass power outlets are integrated into the marble desks of our Sunlit Veranda and Library Salon, making Aurelia a favored hideaway for focused creative sessions.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       LUXURY FOOTER & VIP NEWSLETTER
+       ========================================================================= -->
+  <footer class="bg-black border-t border-gold-500/20 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <!-- Newsletter Row -->
+      <div class="glass-panel p-8 sm:p-10 rounded-3xl border border-gold-500/30 mb-16 flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="max-w-xl text-center lg:text-left">
+          <span class="text-[11px] uppercase tracking-widest text-gold-400 font-cinzel">The Connoisseur Circle</span>
+          <h4 class="text-2xl font-cinzel font-bold text-stone-100 mt-1 mb-2">Receive First Access to Rare Micro-Lots</h4>
+          <p class="text-xs sm:text-sm text-stone-400">
+            Subscribers receive invitations to quarterly cupping salon events and private seasonal reserve drops.
+          </p>
+        </div>
+
+        <form id="newsletter-form" class="w-full lg:w-auto flex-1 max-w-md flex flex-col sm:flex-row gap-3">
+          <input
+            type="email"
+            id="newsletter-email"
+            name="newsletterEmail"
+            aria-label="VIP newsletter email address"
+            autocomplete="email"
+            required
+            placeholder="Enter your email address..."
+            class="flex-1 bg-stone-900 border border-gold-500/30 rounded-full px-5 py-3 text-xs text-stone-100 placeholder-stone-500 focus:outline-none focus:border-gold-400"
+          />
+          <button
+            type="submit"
+            class="btn-gold px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest cursor-pointer whitespace-nowrap"
+          >
+            Join Circle
+          </button>
+        </form>
+      </div>
+
+      <!-- Footer Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-stone-900 text-xs">
+        <!-- Col 1 -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-gold-500 flex items-center justify-center font-cinzel font-bold text-black text-sm">A</div>
+            <span class="font-cinzel text-lg font-bold tracking-widest text-gold-gradient">AURELIA</span>
+          </div>
+          <p class="text-stone-400 leading-relaxed font-playfair italic">
+            "Artisanal coffee elevated to haute couture."
+          </p>
+          <div class="text-[11px] text-stone-500">
+            742 Grand Boulevard, Haute District<br />
+            Tel: +1 (555) 892-4000
+          </div>
+        </div>
+
+        <!-- Col 2: The Experience -->
+        <div>
+          <h5 class="font-cinzel text-gold-300 text-xs uppercase tracking-[0.2em] mb-4 font-bold">The Experience</h5>
+          <ul class="space-y-2.5">
+            <li><a href="#vault" class="footer-editorial-link">The Tasting Vault</a></li>
+            <li><a href="#flight" class="footer-editorial-link">Master Cupping Flight</a></li>
+            <li><a href="#sommelier" class="footer-editorial-link">Coffee Sommelier Quiz</a></li>
+            <li><a href="#craft" class="footer-editorial-link">Drum Roasting Philosophy</a></li>
+            <li><a href="#sanctuary" class="footer-editorial-link">Sanctuary Architecture</a></li>
+            <li><a href="#journal" class="footer-editorial-link">The Aesthetic Journal</a></li>
+            <li><a href="#reserve" class="footer-editorial-link">VIP Table Booking</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Rare Terroirs -->
+        <div>
+          <h5 class="font-cinzel text-gold-300 text-xs uppercase tracking-[0.2em] mb-4 font-bold">Rare Terroirs</h5>
+          <ul class="space-y-2.5">
+            <li><a href="#vault" class="footer-editorial-link">Panama Hacienda Geisha</a></li>
+            <li><a href="#vault" class="footer-editorial-link">Ethiopian Yirgacheffe Heirloom</a></li>
+            <li><a href="#vault" class="footer-editorial-link">Colombia Pink Bourbon</a></li>
+            <li><a href="#vault" class="footer-editorial-link">Sumatra Kerinci Volcano</a></li>
+            <li><a href="#vault" class="footer-editorial-link">Kyoto 18-Hour Cold Tower</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Sanctuary Hours -->
+        <div>
+          <h5 class="font-cinzel text-gold-300 text-xs uppercase tracking-[0.2em] mb-4 font-bold">Sanctuary Hours</h5>
+          <div class="space-y-3">
+            <div class="p-3 rounded-xl glass-panel border border-gold-500/20">
+              <span class="footer-hours-label block mb-1">Monday – Friday</span>
+              <span class="footer-hours-time">07:00 AM — 10:00 PM</span>
+            </div>
+            <div class="p-3 rounded-xl glass-panel border border-gold-500/20">
+              <span class="footer-hours-label block mb-1">Saturday – Sunday</span>
+              <span class="footer-hours-time">07:30 AM — 10:00 PM</span>
+            </div>
+            <p class="text-[11px] font-cinzel tracking-wider text-emerald-400 flex items-center gap-2 pt-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 status-dot-pulse inline-block"></span>
+              Live Barista Service
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-stone-500 font-cinzel">
+        <p>© 2026 AURELIA HAUTE ROASTERY & COFFEE SANCTUARY. ALL RIGHTS RESERVED.</p>
+        <p class="text-stone-400 tracking-wider">CRAFTED FOR LUXURY & SENSORY EXCELLENCE</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       TASTING TRAY (CART) SLIDE-OUT DRAWER
+       ========================================================================= -->
+  <div id="cart-drawer-overlay" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm transition-opacity"></div>
+  <aside
+    id="cart-drawer-container"
+    aria-label="Tasting Tray Cart"
+    class="fixed top-0 right-0 z-50 w-full sm:w-96 h-full glass-panel-deep border-l border-gold-500/30 shadow-2xl flex flex-col justify-between p-6 transform translate-x-full transition-transform duration-500"
+  >
+    <!-- Drawer Header -->
+    <div class="flex items-center justify-between pb-4 border-b border-gold-500/20">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        </div>
+        <div>
+          <h4 class="font-cinzel text-sm font-bold text-amber-100 uppercase tracking-wider">Your Tasting Tray</h4>
+          <span class="text-[10px] text-stone-400">Curated for Table Seating or Pre-order</span>
+        </div>
+      </div>
+      <button type="button" id="btn-close-cart" class="text-stone-400 hover:text-gold-300 p-1 cursor-pointer">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Items List (Scrollable) -->
+    <div id="cart-items-list" class="flex-1 overflow-y-auto py-4 space-y-3">
+      <!-- Injected by js/app.js -->
+    </div>
+
+    <!-- Drawer Footer / Summary -->
+    <div class="pt-4 border-t border-gold-500/20 space-y-3">
+      <div class="space-y-1 text-xs">
+        <div class="flex justify-between text-stone-400">
+          <span>Tray Subtotal</span>
+          <span id="cart-subtotal" class="font-mono text-stone-200">$0.00</span>
+        </div>
+        <div class="flex justify-between text-stone-400">
+          <span>Local Tax (8.5%)</span>
+          <span id="cart-tax" class="font-mono text-stone-200">$0.00</span>
+        </div>
+        <div class="flex justify-between font-cinzel font-bold text-sm text-gold-300 pt-2 border-t border-stone-800">
+          <span>Sanctuary Total</span>
+          <span id="cart-total" class="font-mono text-base text-gold-400">$0.00</span>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        id="btn-checkout-tray"
+        class="w-full btn-gold py-3.5 rounded-full text-xs font-bold uppercase tracking-widest cursor-pointer shadow-xl"
+      >
+        Complete Tasting Pre-Order
+      </button>
+
+      <a
+        href="#reserve"
+        onclick="document.getElementById('btn-close-cart').click()"
+        class="block text-center text-[11px] uppercase tracking-wider text-gold-400/80 hover:text-gold-300 font-cinzel transition-colors"
+      >
+        Or Reserve Table to Sip These
+      </a>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       DYNAMIC MODAL ROOTS
+       ========================================================================= -->
+  <div id="flavor-modal-root"></div>
+  <div id="vip-pass-modal-root"></div>
+  <div id="lightbox-modal-root"></div>
+  <div id="checkout-modal-root"></div>
+
+  <!-- Toast Notification Stack Container (Disabled per luxury non-intrusive UI requirement) -->
+  <div id="toast-root" class="hidden"></div>
+
+  <!-- Main ES6 Application Script -->
+  <script type="module" src="js/app.js?v=20260921_v9"></script>
+</body>
+</html>

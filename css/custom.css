@@ -1,0 +1,600 @@
+/* ==========================================================================
+   AURELIA — Haute Roastery & Coffee Sanctuary
+   Custom Luxury Styles, Shimmers, Glassmorphism & Animations
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-obsidian: #090807;
+  --color-mocha: #14110F;
+  --color-espresso: #1C1814;
+  --color-card-bg: rgba(24, 20, 16, 0.85);
+  --color-gold-light: #F5E5B8;
+  --color-gold-base: #D4AF37;
+  --color-gold-dark: #A47E1B;
+  --color-crema: #FDFBF7;
+  --color-crema-muted: #B8ADA0;
+  --font-serif-title: 'Cinzel', Georgia, serif;
+  --font-serif-body: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Base resets & typography */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-obsidian);
+  color: var(--color-crema);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-gold-base);
+  color: #000;
+}
+
+
+
+/* Font classes */
+.font-cinzel {
+  font-family: var(--font-serif-title);
+}
+
+.font-playfair {
+  font-family: var(--font-serif-body);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Luxury Gold Text Gradients */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF1C5 0%, #D4AF37 50%, #AA7C11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(90deg, #D4AF37 0%, #FFF4D2 50%, #D4AF37 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 4s linear infinite;
+  display: inline-block;
+}
+
+@keyframes goldShimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Gold borders */
+.border-gold-subtle {
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.border-gold-hover:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+}
+
+/* Glassmorphism surfaces */
+.glass-panel {
+  background: rgba(20, 17, 14, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.glass-panel-deep {
+  background: rgba(12, 10, 8, 0.94);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(212, 175, 55, 0.24);
+}
+
+.glass-nav {
+  background: rgba(9, 8, 7, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+/* Luxury Gold Button Styling */
+.btn-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #B88E1C 100%);
+  color: #0D0A08;
+  font-family: var(--font-serif-title);
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, transparent 60%);
+  transform: scale(0);
+  transition: transform 0.5s ease-out;
+  pointer-events: none;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.45);
+  background: linear-gradient(135deg, #E5C358 0%, #C99B26 100%);
+}
+
+.btn-gold:hover::before {
+  transform: scale(1);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+/* Outline Gold Button */
+.btn-gold-outline {
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #F5E5B8;
+  font-family: var(--font-serif-title);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(212, 175, 55, 0.04);
+  transition: all 0.3s ease;
+}
+
+.btn-gold-outline:hover {
+  border-color: #D4AF37;
+  background: rgba(212, 175, 55, 0.15);
+  color: #FFF;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Subtle glow badges */
+.gold-badge {
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #EBD396;
+}
+
+/* Luxury card glow and hover */
+.luxury-card {
+  background: rgba(22, 18, 14, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.luxury-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.85), 0 0 35px rgba(212, 175, 55, 0.18);
+}
+
+/* Steam floating animation effect */
+.steam-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+.steam-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(253, 251, 247, 0.4) 0%, transparent 70%);
+  filter: blur(12px);
+  animation: floatSteam 8s infinite ease-in-out;
+}
+
+@keyframes floatSteam {
+  0% {
+    transform: translateY(0) scale(1) translateX(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-160px) scale(2.2) translateX(25px);
+    opacity: 0;
+  }
+}
+
+/* Ambient sound equalizer bars */
+.equalizer-bar {
+  width: 3px;
+  background-color: #D4AF37;
+  border-radius: 2px;
+  animation: eqBounce 1.2s ease-in-out infinite alternate;
+}
+
+.equalizer-bar:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.equalizer-bar:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.equalizer-bar:nth-child(4) {
+  animation-delay: 0.1s;
+}
+
+@keyframes eqBounce {
+  0% {
+    height: 4px;
+  }
+  100% {
+    height: 16px;
+  }
+}
+
+.equalizer-paused .equalizer-bar {
+  animation-play-state: paused;
+  height: 4px !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090807;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2D2319;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Image zoom on hover */
+.img-zoom-container {
+  overflow: hidden;
+}
+
+.img-zoom-container img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-zoom-container:hover img {
+  transform: scale(1.08);
+}
+
+/* Gold divider with diamond */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: '';
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+}
+
+.gold-divider span {
+  width: 6px;
+  height: 6px;
+  background: #D4AF37;
+  transform: rotate(45deg);
+  display: inline-block;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}
+
+/* Pulse badge */
+@keyframes pulseDot {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
+}
+
+.status-dot-pulse {
+  animation: pulseDot 2s infinite;
+}
+
+/* Modal and Drawer backdrop transition */
+.modal-enter {
+  opacity: 0;
+  transform: scale(0.96) translateY(10px);
+}
+
+.modal-enter-active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   NAVIGATION TAB ACTIVE (YELLOW) & INACTIVE (WHITE) STATES
+   ========================================================================== */
+.nav-tab-inactive {
+  color: #FFFFFF !important;
+  font-weight: 500 !important;
+  opacity: 0.92;
+  position: relative;
+  transition: color 0.25s ease, opacity 0.25s ease, text-shadow 0.25s ease;
+}
+
+.nav-tab-inactive:hover {
+  color: #FACC15 !important;
+  opacity: 1;
+}
+
+.nav-tab-active {
+  color: #FACC15 !important; /* Pure radiant luxury yellow */
+  font-weight: 700 !important;
+  opacity: 1 !important;
+  text-shadow: 0 0 12px rgba(250, 204, 21, 0.55), 0 0 2px rgba(250, 204, 21, 0.9) !important;
+  position: relative;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.nav-tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FACC15, transparent);
+  border-radius: 9999px;
+  box-shadow: 0 0 8px #FACC15;
+  animation: fadeInUnderline 0.25s ease forwards;
+}
+
+@keyframes fadeInUnderline {
+  from {
+    transform: scaleX(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Mobile Nav Link States */
+.mobile-nav-inactive {
+  color: #FFFFFF !important;
+  font-weight: 500 !important;
+  opacity: 0.9;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.mobile-nav-inactive:hover {
+  color: #FACC15 !important;
+}
+
+.mobile-nav-active {
+  color: #FACC15 !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+  text-shadow: 0 0 12px rgba(250, 204, 21, 0.6) !important;
+  padding-left: 8px;
+  border-left: 3px solid #FACC15;
+}
+
+/* ==========================================================================
+   FOOTER EDITORIAL & HOROLOGY TYPOGRAPHY
+   ========================================================================== */
+
+.footer-editorial-link {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.035em !important;
+  font-weight: 500 !important;
+  color: #D6D3D1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: all 0.25s ease !important;
+}
+
+.footer-editorial-link:hover {
+  color: #FACC15 !important;
+  transform: translateX(4px) !important;
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.4) !important;
+}
+
+.footer-editorial-link::before {
+  content: '✦';
+  font-size: 0.55rem;
+  color: #E5C358;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: all 0.25s ease;
+}
+
+.footer-editorial-link:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.footer-hours-label {
+  font-family: 'Cinzel', Georgia, serif !important;
+  font-size: 0.72rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.22em !important;
+  color: #E5C358 !important;
+  font-weight: 700 !important;
+}
+
+.footer-hours-time {
+  font-family: 'Space Mono', ui-monospace, monospace !important;
+  font-size: 0.92rem !important;
+  letter-spacing: 0.08em !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  display: block !important;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* ==========================================================================
+   AMBIENT EQUALIZER ANIMATION
+   ========================================================================== */
+.equalizer-bar {
+  width: 2px;
+  background: #E5C358;
+  border-radius: 1px;
+  animation: equalize 1.2s ease-in-out infinite alternate;
+}
+.equalizer-bar:nth-child(1) { animation-duration: 0.85s; animation-delay: 0.05s; }
+.equalizer-bar:nth-child(2) { animation-duration: 1.35s; animation-delay: 0.25s; }
+.equalizer-bar:nth-child(3) { animation-duration: 1.05s; animation-delay: 0.15s; }
+.equalizer-bar:nth-child(4) { animation-duration: 1.25s; animation-delay: 0.35s; }
+
+.equalizer-paused .equalizer-bar {
+  animation-play-state: paused !important;
+  height: 3px !important;
+  opacity: 0.45;
+}
+
+@keyframes equalize {
+  0% { height: 2px; }
+  50% { height: 13px; }
+  100% { height: 4px; }
+}
+
+/* ==========================================================================
+   CART BADGE PULSE ANIMATION (SILENT LUXURY MICRO-FEEDBACK)
+   ========================================================================== */
+@keyframes cartBadgePulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+  }
+  40% {
+    transform: scale(1.38);
+    box-shadow: 0 0 18px 4px rgba(212, 175, 55, 0.65);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  }
+}
+
+.cart-badge-pulse {
+  animation: cartBadgePulse 0.45s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* ==========================================================================
+   PRINT STYLES — SINGLE-PAGE LUXURY PASS ONLY (1 SHEET GUARANTEE)
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 1.2cm;
+  }
+
+  /* Force dark luxury canvas for print */
+  html, body {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: #090807 !important;
+    color: #FDFBF7 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide every part of the website DOM */
+  body > * {
+    display: none !important;
+  }
+
+  /* Display ONLY the pass modal root */
+  body > #vip-pass-modal-root {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #vip-pass-modal-root .fixed {
+    position: static !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* The Pass Card — sized perfectly for exactly 1 page */
+  .vip-pass-card {
+    width: 520px !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    background: #14110F !important;
+    border: 2px solid #D4AF37 !important;
+    border-radius: 20px !important;
+    padding: 24px 28px !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .vip-ticket-inner {
+    background: #090807 !important;
+    border: 1px solid rgba(212, 175, 55, 0.4) !important;
+    border-radius: 14px !important;
+    padding: 20px !important;
+  }
+
+  /* Hide interactive buttons & close icons during print */
+  #btn-close-vip-pass,
+  #btn-download-ics,
+  #btn-print-pass,
+  .print-hide {
+    display: none !important;
+  }
+}
+
+
